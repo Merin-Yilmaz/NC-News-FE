@@ -3,12 +3,11 @@
 }
 
 .navbar {
-  padding: 20px;
+  padding: 10px;
   display: flex;
   align-items: center;
-  max-width: 600px;
   margin: 0 auto;
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid rgb(248, 55, 55);
 }
 
 .navbar .links {
@@ -29,4 +28,45 @@
   max-width: 600px;
   margin: 40px auto;
   padding: 20px;
+}
+
+.articles-list {
+  margin: 20px;
+  text-align: center;
+}
+
+.all-articles {
+  margin-top: 20px;
+  padding-top: 10px;
+  border-top: black solid 1px;
+}
+
+h2 {
+  text-align: center;
+  padding: 10px;
+}
+
+.article-list-detail {
+  margin: 20px;
+  text-align: center;
+}
+
+.article-author {
+  text-align: right;
+}
+
+.article-date {
+  text-align: right;
+}
+
+.article-topic {
+  text-align: right;
+}
+
+.article-votes {
+  text-align: left;
+}
+
+.article-comments {
+  text-align: left;
 }

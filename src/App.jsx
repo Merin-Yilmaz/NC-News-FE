@@ -1,17 +1,18 @@
 import "./App.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Root from "../src/Routes/Root";
-import ErrorPage from "../src/Routes/404";
+import ErrorPage from "./Components/Error";
 import Header from "./Components/Header";
 import NavBar from "./Components/Navigation";
 import Home from "./Routes/Home";
 import Dashboard from "../src/Components/Dashboard";
+import ArticleCard from "./Components/ArticleCard";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
-    errorElement: <ErrorPage />,
+    errorElement: <Error />,
     children: [
       {
         path: "/",
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
       {
         path: "/dashboard",
         element: <Dashboard />,
+      },
+      {
+        path: "/articles/:article_id",
+        element: <ArticleCard />,
       },
     ],
   },
