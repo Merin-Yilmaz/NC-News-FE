@@ -10,7 +10,19 @@ export const api = {
 
         return response.data?.articles || [];
       } catch (err) {
-        console.error("An error occurred while getting categories", err);
+        console.error("An error occurred while getting articles", err);
+        throw err;
+      }
+    },
+  },
+  getArticleById: {
+    get: async (id) => {
+      try {
+        const response = await axios.get(`${baseUrl}/api/articles/${id}`);
+
+        return response.data?.article || [];
+      } catch (err) {
+        console.error(`An error occurred while getting ${article_id}`, err);
         throw err;
       }
     },

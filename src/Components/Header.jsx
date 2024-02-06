@@ -1,7 +1,9 @@
 const Header = () => {
   return (
     <header>
-      <h1>NC News</h1>
+      <a href={`/`}>
+        <h1>NC News</h1>
+      </a>
     </header>
   );
 };
