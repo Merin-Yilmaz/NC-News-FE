@@ -1,10 +1,7 @@
 import ArticleList from "../Components/ArticleList";
 
 const Home = () => {
-
-  return (
-    <ArticleList />
-  );
+  return <ArticleList />;
 };
 
 export default Home;

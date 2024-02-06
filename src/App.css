@@ -34,6 +34,10 @@
   margin: 20px;
   text-align: center;
 }
+/* 
+.article-list-comments {
+  text-align: center;
+} */
 
 .all-articles {
   margin-top: 20px;
@@ -52,7 +56,23 @@ h2 {
 }
 
 .article-author {
-  text-align: right;
+  text-align: left;
+  padding-left: 50px;
+  padding-bottom: 2px;
+}
+
+.article-img {
+  height: auto;
+  width: 500px;
+  display: flex;
+  justify-content: left;
+  padding-left: 50px;
+}
+
+.article-body {
+  margin: 10px;
+  padding-top: 5px;
+  text-align: left;
 }
 
 .article-date {
@@ -60,13 +80,36 @@ h2 {
 }
 
 .article-topic {
-  text-align: right;
+  text-align: left;
+  padding-left: 50px;
+  padding-bottom: 2px;
 }
 
 .article-votes {
   text-align: left;
+  padding-left: 50px;
 }
 
 .article-comments {
   text-align: left;
+  padding-left: 50px;
+}
+
+.h4 {
+  text-align: left;
+}
+
+.all-comments {
+  padding-top: 10px;
+}
+
+.view-comments {
+  text-align: left;
+  padding-top: 20px;
+  padding-left: 50px;
+}
+
+.comment-body {
+  border-top: solid 1px black;
+  padding-top: 5px;
 }

@@ -3,7 +3,10 @@ import { api } from "../api";
 import { useParams } from "react-router-dom";
 import Loading from "../Components/Loading";
 import Error from "./Error";
-import VoteCounter from "./VoteCounter";
+import Comments from "./Comments";
+import Accordion from "./CommentAccordion";
+import moment from "moment";
+// import VoteCounter from "./VoteCounter";
 
 const ArticleCard = () => {
   const { article_id } = useParams();
@@ -35,19 +38,27 @@ const ArticleCard = () => {
         <>
           <h2>{article.title}</h2>
           <p className="article-list-detail">
-            <ul className="article-date">Date Created: {article.created_at}</ul>
+            <ul className="article-date">
+              Date Created: {moment(article.created_at).format("MMMM Do YYYY")}
+            </ul>
             <ul className="article-topic">Topic: {article.topic}</ul>
+            <ul className="article-author">Author: {article.author}</ul>
             <img
               className="article-img"
               src={article.article_img_url}
               alt={article.title}
             />
-            <ul className="article-author">Author: {article.author}</ul>
+            <ul className="article-body">{article.body}</ul>
             <ul className="article-votes">Votes: {article.votes}</ul>
-            <VoteCounter />
+            {/* <VoteCounter /> */}
             <ul className="article-comments">
-              Comments: {article.comment_count}
+              Comment Count: {article.comment_count}
             </ul>
+            <div className="view-comments">
+              <Accordion contentDescriptor={"Comments"}>
+                <Comments article_id={article_id} />
+              </Accordion>
+            </div>
           </p>
         </>
       ) : null}

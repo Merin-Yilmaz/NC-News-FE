@@ -27,4 +27,16 @@ export const api = {
       }
     },
   },
+  getCommentsByArticleId: {
+    get: async (id) => {
+      try {
+        const response = await axios.get(`${baseUrl}/api/articles/${id}/comments`);
+
+        return response.data?.comments || [];
+      } catch (err) {
+        console.error("An error occurred while getting comments", err);
+        throw err;
+      }
+    },
+  },
 };
