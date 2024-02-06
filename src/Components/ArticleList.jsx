@@ -2,8 +2,7 @@ import { useEffect, useState } from "react";
 import { api } from "../api";
 import Loading from "../Components/Loading";
 import Error from "./Error";
-// import Accordion from "./CommentAccordion";
-// import Comments from "./Comments";
+
 
 const ArticleList = () => {
   const [articles, setArticles] = useState([]);
@@ -35,16 +34,11 @@ const ArticleList = () => {
       {articles.map((article) => (
         <div className="all-articles" key={article.article_id}>
           <a href={`/articles/${article.article_id}`}>
-            <ul>{article.title}</ul>
+            <ul className="article-list-title">{article.title}</ul>
           </a>
           <ul> Author: {article.author}</ul>
           <ul>Votes: {article.votes}</ul>
           <ul>Comment Count: {article.comment_count}</ul>
-          {/* <div className="article-list-comments">
-            <Accordion contentDescriptor={"Comments"}>
-              <Comments article_id={article.article_id} />
-            </Accordion>
-          </div> */}
         </div>
       ))}
     </section>
