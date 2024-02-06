@@ -1,4 +1,5 @@
 const Error = ({ error }) => {
+  console.log(error);
   return (
     <div className="error-display">
       <h1>Oops!</h1>
