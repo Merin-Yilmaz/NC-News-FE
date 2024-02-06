@@ -3,8 +3,28 @@ const NavBar = () => {
     <>
       <nav className="navbar">
         <div className="links">
-          <a href="/">Home</a>
-          <a href="dashboard">Login/Register</a>
+          <a
+            href="/"
+            style={{
+              color: "white",
+              backgroundColor: "#f1356d",
+              borderRadius: "8px",
+              fontWeight: "bold",
+            }}
+          >
+            Home
+          </a>
+          <a
+            href="dashboard"
+            style={{
+              color: "white",
+              backgroundColor: "#f1356d",
+              borderRadius: "8px",
+              fontWeight: "bolder",
+            }}
+          >
+            Login/Register
+          </a>
         </div>
       </nav>
     </>

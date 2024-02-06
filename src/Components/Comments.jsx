@@ -22,7 +22,7 @@ const Comments = ({ article_id }) => {
       setIsLoading(false);
     }
   }, []);
-  console.log(error);
+
   if (isLoading) return <Loading />;
 
   if (error) return <Error error={error} />;

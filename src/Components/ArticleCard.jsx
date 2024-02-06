@@ -6,7 +6,7 @@ import Error from "./Error";
 import Comments from "./Comments";
 import Accordion from "./CommentAccordion";
 import moment from "moment";
-// import VoteCounter from "./VoteCounter";
+import VoteCounter from "./VoteCounter";
 
 const ArticleCard = () => {
   const { article_id } = useParams();
@@ -37,9 +37,10 @@ const ArticleCard = () => {
       {article ? (
         <>
           <h2>{article.title}</h2>
-          <p className="article-list-detail">
+          <div className="article-list-detail">
             <ul className="article-date">
-              Date Created: {moment(article.created_at).format("MMMM Do YYYY")}
+              Date Created: <br></br>
+              {moment(article.created_at).format("MMMM Do YYYY")}
             </ul>
             <ul className="article-topic">Topic: {article.topic}</ul>
             <ul className="article-author">Author: {article.author}</ul>
@@ -49,8 +50,9 @@ const ArticleCard = () => {
               alt={article.title}
             />
             <ul className="article-body">{article.body}</ul>
-            <ul className="article-votes">Votes: {article.votes}</ul>
-            {/* <VoteCounter /> */}
+
+            <VoteCounter article={article} />
+            <br></br>
             <ul className="article-comments">
               Comment Count: {article.comment_count}
             </ul>
@@ -59,7 +61,7 @@ const ArticleCard = () => {
                 <Comments article_id={article_id} />
               </Accordion>
             </div>
-          </p>
+          </div>
         </>
       ) : null}
     </>

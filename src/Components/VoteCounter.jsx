@@ -1,23 +1,48 @@
-// import React, { useState } from "react";
+import React, { useState } from "react";
+import { api } from "../api";
+import like from "../../img/like.png";
+import dislike from "../../img/dislike.png";
 
-// const VoteCounter = () => {
-//   const [votes, setVotes] = useState(0);
+const VoteCounter = ({ article }) => {
+  const [votes, setVotes] = useState(article.votes);
+  const updateVotes = async (vote) => {
+    try {
+      const data = await api.updateVotes.patch(article.article_id, vote);
+      setVotes(data.votes);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
-//   const handleUpvote = () => {
-//     setVotes(votes + 1);
-//   };
+  const handleUpvote = () => {
+    updateVotes("+1");
+  };
 
-//   const handleDownvote = () => {
-//     setVotes(votes === 0 ? -1 : votes - 1);
-//   };
+  const handleDownvote = () => {
+    updateVotes("-1");
+  };
 
-//   return (
-//     <div>
-//       <p>Vote Count: {votes}</p>
-//       <button onClick={handleUpvote}>Upvote</button>
-//       <button onClick={handleDownvote}>Downvote</button>
-//     </div>
-//   );
-// };
+  return (
+    <div className="article-votes">
+      Votes: {votes}
+      <br></br>
+      <button
+        type="button"
+        className="btn btn-outline-success"
+        onClick={handleUpvote}
+      >
+        Upvote <img src={like} alt="like image" height={25} width={25} />
+      </button>
+      <button
+        type="button"
+        className="btn btn-outline-danger"
+        onClick={handleDownvote}
+      >
+        Downvote{" "}
+        <img src={dislike} alt="dislike image" height={25} width={25} />
+      </button>
+    </div>
+  );
+};
 
-// export default VoteCounter;
+export default VoteCounter;

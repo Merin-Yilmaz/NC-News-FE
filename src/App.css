@@ -1,13 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&family=Rubik+Glitch&display=swap");
+
 * {
   margin: 0;
+  font-family: "Quicksand";
+  color: #333;
 }
 
 .navbar {
-  padding: 10px;
+  padding: 20px;
   display: flex;
   align-items: center;
   margin: 0 auto;
   border-bottom: 1px solid rgb(248, 55, 55);
+}
+
+.navbar h1 {
+  color: #f1356d;
 }
 
 .navbar .links {
@@ -21,7 +29,7 @@
 }
 
 .navbar a:hover {
-  color: f1356d;
+  color: #f1356d;
 }
 
 .content {
@@ -34,15 +42,16 @@
   margin: 20px;
   text-align: center;
 }
-/* 
-.article-list-comments {
-  text-align: center;
-} */
+
+.article-list-title {
+  font-size: larger;
+  font-weight: bold;
+}
 
 .all-articles {
   margin-top: 20px;
   padding-top: 10px;
-  border-top: black solid 1px;
+  background-color: rgba(211, 211, 211, 0.692);
 }
 
 h2 {
@@ -72,6 +81,7 @@ h2 {
 .article-body {
   margin: 10px;
   padding-top: 5px;
+  padding-left: 40px;
   text-align: left;
 }
 
@@ -100,16 +110,18 @@ h2 {
 }
 
 .all-comments {
-  padding-top: 10px;
+  background-color: rgba(211, 211, 211, 0.692);
 }
 
 .view-comments {
   text-align: left;
-  padding-top: 20px;
   padding-left: 50px;
 }
 
 .comment-body {
-  border-top: solid 1px black;
   padding-top: 5px;
+}
+
+.btn-outline-success {
+  margin-right: 5px;
 }
