@@ -5,6 +5,9 @@ import dislike from "../../img/dislike.png";
 
 const VoteCounter = ({ article }) => {
   const [votes, setVotes] = useState(article.votes);
+  const [hasUpvoted, setHasUpvoted] = useState(false);
+  const [hasDownvoted, setHasDownvoted] = useState(false);
+
   const updateVotes = async (vote) => {
     try {
       const data = await api.updateVotes.patch(article.article_id, vote);
@@ -29,14 +32,22 @@ const VoteCounter = ({ article }) => {
       <button
         type="button"
         className="btn btn-outline-success"
-        onClick={handleUpvote}
+        disabled={hasUpvoted}
+        onClick={() => {
+          handleUpvote();
+          setHasUpvoted(true);
+        }}
       >
         Upvote <img src={like} alt="like image" height={25} width={25} />
       </button>
       <button
         type="button"
         className="btn btn-outline-danger"
-        onClick={handleDownvote}
+        disabled={hasDownvoted}
+        onClick={() => {
+          handleDownvote();
+          setHasDownvoted(true);
+        }}
       >
         Downvote{" "}
         <img src={dislike} alt="dislike image" height={25} width={25} />

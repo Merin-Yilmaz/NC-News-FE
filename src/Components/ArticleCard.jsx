@@ -8,6 +8,7 @@ import Accordion from "./CommentAccordion";
 import moment from "moment";
 import VoteCounter from "./VoteCounter";
 
+
 const ArticleCard = () => {
   const { article_id } = useParams();
   const [article, setArticle] = useState(null);
@@ -53,12 +54,9 @@ const ArticleCard = () => {
 
             <VoteCounter article={article} />
             <br></br>
-            <ul className="article-comments">
-              Comment Count: {article.comment_count}
-            </ul>
             <div className="view-comments">
               <Accordion contentDescriptor={"Comments"}>
-                <Comments article_id={article_id} />
+                <Comments article={article} />
               </Accordion>
             </div>
           </div>
