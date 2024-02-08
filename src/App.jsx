@@ -41,7 +41,7 @@ function App() {
 
   return (
     <>
-      <UserContext.Provider value={{loggedInUser, setLoggedInUser}}>
+      <UserContext.Provider value={loggedInUser}>
         <Header />
         <NavBar />
         <RouterProvider router={router} />

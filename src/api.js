@@ -62,10 +62,22 @@ export const api = {
           `${baseUrl}/api/articles/${id}/comments`,
           comment
         );
-
         return response.data?.comment;
       } catch (err) {
         console.error("An error occurred while adding your comment", err);
+        throw err;
+      }
+    },
+  },
+  deleteComment: {
+    delete: async (comment_id) => {
+      try {
+        const response = await axios.delete(
+          `${baseUrl}/api/comments/${comment_id}`
+        );
+        return response.data?.comment;
+      } catch (err) {
+        console.error("An error occurred while deleting your comment", err);
         throw err;
       }
     },

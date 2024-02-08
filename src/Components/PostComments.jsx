@@ -1,21 +1,32 @@
 import { api } from "../api";
 import { useState } from "react";
-import moment from "moment";
 import { useContext } from "react";
 import UserContext from "./UserContext";
 
-const PostComments = ({ article_id, setComments, comments }) => {
+const PostComments = ({
+  article_id,
+  setComments,
+  comments,
+  setCount,
+  count,
+}) => {
   const [commentArea, setCommentArea] = useState("");
   const loggedInUser = useContext(UserContext);
 
   const submitComment = async (comment) => {
     try {
-      const data = await api.addComment.post(article_id, {
-        body: comment,
-        username: loggedInUser.username,
-      });
-      console.log(data);
-      setComments(() => [data, ...comments]);
+      if (commentArea.length > 0) {
+        const data = await api.addComment.post(article_id, {
+          body: comment,
+          username: loggedInUser.username,
+        });
+        setCount(count + 1);
+        setComments(() => [data, ...comments]);
+        setCommentArea("");
+        alert("Your comment will be added");
+      } else {
+        alert("Sorry, you can't submit an empty comment!");
+      }
     } catch (error) {
       console.log(error);
     }
@@ -33,7 +44,13 @@ const PostComments = ({ article_id, setComments, comments }) => {
     <section className="add-comments-main-container">
       <div className="comment-container">
         <h4>Add Comment</h4>
-        <textarea value={commentArea} onChange={onChangeHandler} required />
+        <textarea
+          onChange={onChangeHandler}
+          value={commentArea}
+          required
+          cols="40"
+          rows="4"
+        />
         <button
           className="btn btn-outline-primary"
           type="submit"
