@@ -2,7 +2,7 @@ import { useContext } from "react";
 import UserContext from "./UserContext";
 
 const NavBar = () => {
-  const { loggedInUser } = useContext(UserContext);
+  const loggedInUser = useContext(UserContext);
 
   return (
     <>

@@ -11,16 +11,18 @@ const Comments = ({ article }) => {
   const loggedInUser = useContext(UserContext);
   const [comments, setComments] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
-  const [counter, setCounter] = useState(article.comment_count);
+  const [count, setCount] = useState(article.comment_count);
   const [error, setError] = useState();
+
+  const loadComments = async () => {
+    const data = await api.getCommentsByArticleId.get(article.article_id);
+    setComments(data);
+    setCount(data.length);
+    setIsLoading(false);
+  };
 
   useEffect(() => {
     try {
-      const loadComments = async () => {
-        const data = await api.getCommentsByArticleId.get(article.article_id);
-        setComments(data);
-        setIsLoading(false);
-      };
       loadComments();
     } catch (error) {
       setError(error);
@@ -28,17 +30,27 @@ const Comments = ({ article }) => {
     }
   }, []);
 
+  const deleteComment = async (commentId) => {
+    try {
+      const data = await api.deleteComment.delete(commentId);
+      loadComments();
+    } catch (error) {
+      setError(error);
+      setIsLoading(false);
+    }
+  };
+
   if (isLoading) return <Loading />;
 
   if (error) return <Error error={error} />;
 
   return (
     <section className="comments-list">
-      <ul className="article-comments">
-        Comment Count: {article.comment_count}
-      </ul>
+      <ul className="article-comments">Comment Count: {count}</ul>
       <div className="add-comments">
         <PostComments
+          setCount={setCount}
+          count={count}
           setComments={setComments}
           comments={comments}
           article_id={article.article_id}
@@ -61,6 +73,15 @@ const Comments = ({ article }) => {
           <ul className="comment-date">
             Date Posted: {moment(comment.created_at).format("MMMM Do YYYY")}
           </ul>
+          <form onSubmit={() => alert("Your comment will be removed")}>
+            <button
+              className="btn btn-outline-dark"
+              onClick={() => deleteComment(comment.comment_id)}
+            >
+              {" "}
+              Delete
+            </button>
+          </form>
         </div>
       ))}
     </section>
