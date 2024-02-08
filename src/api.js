@@ -9,9 +9,8 @@ export const api = {
         const response = await axios.get(`${baseUrl}/api/articles`);
 
         return response.data?.articles;
-      } catch (err) {
-        console.error("An error occurred while getting articles", err);
-        throw err;
+      } catch (error) {
+        throw new Error(alert("An error occurred while getting articles"));
       }
     },
   },
@@ -21,9 +20,8 @@ export const api = {
         const response = await axios.get(`${baseUrl}/api/articles/${id}`);
 
         return response.data?.article;
-      } catch (err) {
-        console.error("An error occurred while getting this article", err);
-        throw err;
+      } catch (error) {
+        throw new Error(alert("An error occurred while getting this article"));
       }
     },
   },
@@ -35,9 +33,8 @@ export const api = {
         );
 
         return response.data?.comments;
-      } catch (err) {
-        console.error("An error occurred while getting comments", err);
-        throw err;
+      } catch (error) {
+        throw new Error(alert("An error occurred while getting comments"));
       }
     },
   },
@@ -49,9 +46,8 @@ export const api = {
         });
 
         return response.data?.votes;
-      } catch (err) {
-        console.error("An error occurred while updating votes", err);
-        throw err;
+      } catch (error) {
+        throw new Error(alert("An error occurred while updating votes"));
       }
     },
   },
@@ -63,9 +59,8 @@ export const api = {
           comment
         );
         return response.data?.comment;
-      } catch (err) {
-        console.error("An error occurred while adding your comment", err);
-        throw err;
+      } catch (error) {
+        throw new Error(alert("An error occurred while adding your comment"));
       }
     },
   },
@@ -76,9 +71,19 @@ export const api = {
           `${baseUrl}/api/comments/${comment_id}`
         );
         return response.data?.comment;
-      } catch (err) {
-        console.error("An error occurred while deleting your comment", err);
-        throw err;
+      } catch (error) {
+        throw new Error(alert("An error occurred while deleting your comment"));
+      }
+    },
+  },
+  topics: {
+    get: async () => {
+      try {
+        const response = await axios.get(`${baseUrl}/api/topics`);
+
+        return response.data?.topics;
+      } catch (error) {
+        throw new Error(alert("An error occurred while getting topics"));
       }
     },
   },

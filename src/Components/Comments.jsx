@@ -30,10 +30,15 @@ const Comments = ({ article }) => {
     }
   }, []);
 
-  const deleteComment = async (commentId) => {
+  const deleteComment = async (commentId, commentAuthor) => {
     try {
-      const data = await api.deleteComment.delete(commentId);
-      loadComments();
+      if (loggedInUser.username === commentAuthor) {
+        alert("Your comment will be removed");
+        const data = await api.deleteComment.delete(commentId);
+        loadComments();
+      } else {
+        alert("Sorry, you can only delete your own comments");
+      }
     } catch (error) {
       setError(error);
       setIsLoading(false);
@@ -73,15 +78,15 @@ const Comments = ({ article }) => {
           <ul className="comment-date">
             Date Posted: {moment(comment.created_at).format("MMMM Do YYYY")}
           </ul>
-          <form onSubmit={() => alert("Your comment will be removed")}>
+          {loggedInUser.username === comment.author ? (
             <button
               className="btn btn-outline-dark"
-              onClick={() => deleteComment(comment.comment_id)}
+              onClick={() => deleteComment(comment.comment_id, comment.author)}
             >
               {" "}
               Delete
             </button>
-          </form>
+          ) : null}
         </div>
       ))}
     </section>

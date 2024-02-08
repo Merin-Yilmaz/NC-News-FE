@@ -29,7 +29,6 @@ header {
   display: grid;
   justify-content: center;
   width: auto;
-  /* text-align: center; */
 }
 
 .article-list-title {
@@ -140,4 +139,15 @@ h2 {
 .btn-outline-dark {
   position: relative;
   left: 90%;
+}
+
+.topics-links {
+  text-decoration: none;
+  display: block;
+  list-style-type: none;
+  cursor: pointer;
+}
+
+.topics-links:hover {
+  background-color: #0d6dfd71;
 }
