@@ -22,7 +22,7 @@ export const api = {
 
         return response.data?.article;
       } catch (err) {
-        console.error(`An error occurred while getting ${article_id}`, err);
+        console.error("An error occurred while getting this article", err);
         throw err;
       }
     },
@@ -51,6 +51,21 @@ export const api = {
         return response.data?.votes;
       } catch (err) {
         console.error("An error occurred while updating votes", err);
+        throw err;
+      }
+    },
+  },
+  addComment: {
+    post: async (id, comment) => {
+      try {
+        const response = await axios.post(
+          `${baseUrl}/api/articles/${id}/comments`,
+          comment
+        );
+
+        return response.data?.comment;
+      } catch (err) {
+        console.error("An error occurred while adding your comment", err);
         throw err;
       }
     },

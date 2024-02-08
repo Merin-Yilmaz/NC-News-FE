@@ -7,6 +7,8 @@ import NavBar from "./Components/Navigation";
 import Home from "./Routes/Home";
 import Dashboard from "../src/Components/Dashboard";
 import ArticleCard from "./Components/ArticleCard";
+import { useState } from "react";
+import UserContext from "./Components/UserContext";
 
 const router = createBrowserRouter([
   {
@@ -30,11 +32,20 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
+  const [loggedInUser, setLoggedInUser] = useState({
+    username: "butter_bridge",
+    name: "jonny",
+    avatar_url:
+      "https://avatars2.githubusercontent.com/u/24604688?s=460&v=4",
+  });
+
   return (
     <>
-      <Header />
-      <NavBar />
-      <RouterProvider router={router} />
+      <UserContext.Provider value={{loggedInUser, setLoggedInUser}}>
+        <Header />
+        <NavBar />
+        <RouterProvider router={router} />
+      </UserContext.Provider>
     </>
   );
 }
