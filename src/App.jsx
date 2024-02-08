@@ -7,6 +7,9 @@ import NavBar from "./Components/Navigation";
 import Home from "./Routes/Home";
 import Dashboard from "../src/Components/Dashboard";
 import ArticleCard from "./Components/ArticleCard";
+import Cats from "./Components/Topics/Cats";
+import Mitch from "./Components/Topics/Mitch";
+import Paper from "./Components/Topics/Paper";
 import { useState } from "react";
 import UserContext from "./Components/UserContext";
 
@@ -27,16 +30,27 @@ const router = createBrowserRouter([
         path: "/articles/:article_id",
         element: <ArticleCard />,
       },
+      {
+        path: "/topics/cats",
+        element: <Cats />,
+      },
+      {
+        path: "/topics/mitch",
+        element: <Mitch />,
+      },
+      {
+        path: "/topics/paper",
+        element: <Paper />,
+      },
     ],
   },
 ]);
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState({
-    username: "butter_bridge",
-    name: "jonny",
-    avatar_url:
-      "https://avatars2.githubusercontent.com/u/24604688?s=460&v=4",
+    username: "icellusedkars",
+    name: "sam",
+    avatar_url: "https://avatars2.githubusercontent.com/u/24604688?s=460&v=4",
   });
 
   return (
