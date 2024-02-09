@@ -7,11 +7,9 @@ import NavBar from "./Components/Navigation";
 import Home from "./Routes/Home";
 import Dashboard from "../src/Components/Dashboard";
 import ArticleCard from "./Components/ArticleCard";
-import Cats from "./Components/Topics/Cats";
-import Mitch from "./Components/Topics/Mitch";
-import Paper from "./Components/Topics/Paper";
 import { useState } from "react";
 import UserContext from "./Components/UserContext";
+import ArticleList from "./Components/ArticleList";
 
 const router = createBrowserRouter([
   {
@@ -31,16 +29,16 @@ const router = createBrowserRouter([
         element: <ArticleCard />,
       },
       {
-        path: "/topics/cats",
-        element: <Cats />,
+        path: "/articles?topic=:topic",
+        element: <ArticleList />,
       },
       {
-        path: "/topics/mitch",
-        element: <Mitch />,
+        path: "/articles?topic=:topic",
+        element: <ArticleList />,
       },
       {
-        path: "/topics/paper",
-        element: <Paper />,
+        path: "/articles?sort_by=:sort",
+        element: <ArticleList />,
       },
     ],
   },
@@ -48,18 +46,21 @@ const router = createBrowserRouter([
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState({
-    username: "icellusedkars",
-    name: "sam",
-    avatar_url: "https://avatars2.githubusercontent.com/u/24604688?s=460&v=4",
+    username: "tickle122",
+    name: "Tom Tickle",
+    avatar_url:
+      "https://vignette.wikia.nocookie.net/mrmen/images/d/d6/Mr-Tickle-9a.png/revision/latest?cb=20180127221953",
   });
 
   return (
     <>
-      <UserContext.Provider value={loggedInUser}>
-        <Header />
-        <NavBar />
-        <RouterProvider router={router} />
-      </UserContext.Provider>
+      <div >
+        <UserContext.Provider value={loggedInUser}>
+          <Header />
+          <NavBar />
+          <RouterProvider router={router} />
+        </UserContext.Provider>
+      </div>
     </>
   );
 }

@@ -7,6 +7,7 @@ import Comments from "./Comments";
 import Accordion from "./CommentAccordion";
 import moment from "moment";
 import VoteCounter from "./VoteCounter";
+import background from "../../img/background.png"
 
 
 const ArticleCard = () => {
@@ -35,6 +36,7 @@ const ArticleCard = () => {
 
   return (
     <>
+    <div style={{ backgroundImage: `url(${background})` }} >
       {article ? (
         <>
           <h2>{article.title}</h2>
@@ -50,6 +52,7 @@ const ArticleCard = () => {
               src={article.article_img_url}
               alt={article.title}
             />
+            <div className="article-body-background">
             <ul className="article-body">{article.body}</ul>
 
             <VoteCounter article={article} />
@@ -59,9 +62,11 @@ const ArticleCard = () => {
                 <Comments article={article} />
               </Accordion>
             </div>
+            </div>
           </div>
         </>
       ) : null}
+      </div>
     </>
   );
 };

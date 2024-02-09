@@ -1,8 +1,5 @@
-import { useContext } from "react";
-import UserContext from "./UserContext";
 
 const NavBar = () => {
-  const loggedInUser = useContext(UserContext);
 
   return (
     <>
@@ -32,17 +29,6 @@ const NavBar = () => {
           </a>
         </div>
       </nav>
-      <div className="Nav-current-user">
-        <p>
-          User:{" "}
-          <img
-            className="user-img"
-            src={loggedInUser.avatar_url}
-            alt={`avatar for user ${loggedInUser.username}`}
-          />
-          {loggedInUser.username}
-        </p>
-      </div>
     </>
   );
 };

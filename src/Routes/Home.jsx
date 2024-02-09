@@ -1,14 +1,11 @@
 import ArticleList from "../Components/ArticleList";
-import TopicsToggle from "../Components/TopicsMenu";
 
 const Home = () => {
   return (
     <>
-    <TopicsToggle />
-    <ArticleList />
+      <ArticleList />
     </>
-    )
-    
+  );
 };
 
 export default Home;

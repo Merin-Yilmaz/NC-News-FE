@@ -3,11 +3,12 @@
 * {
   font-family: "Quicksand";
   color: #333;
+  font-weight: 500;
 }
 
 .navbar {
-  padding: 20px;
   border-bottom: 1px solid rgb(248, 55, 55);
+  display: flex;
 }
 
 .navbar .links {
@@ -20,15 +21,26 @@
   padding: 6px;
 }
 
-header {
-  padding-left: 20px;
-  padding-top: 10px;
+.nav-current-user {
+  margin-left: 50%;
+  display: flex;
 }
 
-.articles-list {
+header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.articles-list-container {
   display: grid;
-  justify-content: center;
-  width: auto;
+  grid-template-columns: 10% 77% 13%;
+  text-align: center;
+}
+
+.articles-list-column {
+  padding: 10px;
+  height: auto;
+  margin: 5px;
 }
 
 .article-list-title {
@@ -39,12 +51,16 @@ header {
 .all-articles {
   margin-top: 20px;
   padding-top: 10px;
-  background-color: rgba(211, 211, 211, 0.692);
+  background-color: rgba(218, 217, 217, 0.959);
 }
 
 h2 {
-  text-align: center;
   padding: 10px;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid;
+  display: grid;
+  justify-content: center;
+  width: auto;
 }
 
 .article-list-detail {
@@ -55,10 +71,34 @@ h2 {
   text-align: center;
 }
 
+.span-author {
+  margin-left: 40px;
+  padding-top: 20px;
+}
+
+.span-votes {
+  margin-left: 80px;
+  padding-top: 20px;
+}
+
+.span-comment {
+  margin-left: 80px;
+  padding-top: 20px;
+}
+
+.article-list-img {
+  width: 200px;
+  border-radius: 20%;
+  margin-bottom: 20px;
+}
+
 .article-author {
   text-align: left;
   padding-left: 50px;
   padding-bottom: 2px;
+  font-weight: bolder;
+  background-color: rgb(255, 255, 255);
+  margin-right: 85%;
 }
 
 .article-img {
@@ -67,6 +107,11 @@ h2 {
   display: flex;
   justify-content: left;
   padding-left: 50px;
+  margin-bottom: 20px;
+}
+
+.article-body-background {
+  background-color: rgb(255, 255, 255);
 }
 
 .article-body {
@@ -78,12 +123,18 @@ h2 {
 
 .article-date {
   text-align: right;
+  font-weight: bolder;
+  background-color: rgb(255, 255, 255);
+  margin-left: 85%;
 }
 
 .article-topic {
   text-align: left;
   padding-left: 50px;
   padding-bottom: 2px;
+  font-weight: bolder;
+  background-color: rgb(255, 255, 255);
+  margin-right: 85%;
 }
 
 .article-votes {
@@ -132,8 +183,8 @@ h2 {
 
 .user-img {
   border-radius: 100%;
-  width: 30px;
-  height: 30px;
+  width: 65px;
+  height: 40px;
 }
 
 .btn-outline-dark {
@@ -149,5 +200,6 @@ h2 {
 }
 
 .topics-links:hover {
-  background-color: #0d6dfd71;
+  background-color: #ffffff;
+  border: 1px solid #333;
 }
