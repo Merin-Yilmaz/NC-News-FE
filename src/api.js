@@ -87,4 +87,26 @@ export const api = {
       }
     },
   },
+  getArticleByTopic: {
+    get: async (topic) => {
+      try {
+        const response = await axios.get(`${baseUrl}/api/articles?topic=${topic}`);
+
+        return response.data?.articles;
+      } catch (error) {
+        throw new Error(alert("An error occurred while getting articles"));
+      }
+    },
+  },
+  sortArticlesBy: {
+    get: async (sort, order) => {
+      try {
+        const response = await axios.get(`${baseUrl}/api/articles?sort_by=${sort}&order=${order}`);
+
+        return response.data?.articles;
+      } catch (error) {
+        throw new Error(alert("An error occurred while getting articles"));
+      }
+    },
+  },
 };

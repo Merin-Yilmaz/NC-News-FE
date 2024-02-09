@@ -1,7 +1,7 @@
 import { api } from "../api";
 import { useEffect, useState } from "react";
 
-const TopicsToggle = () => {
+const TopicsMenu = () => {
   const [topics, setTopics] = useState([]);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -37,7 +37,7 @@ const TopicsToggle = () => {
           <ul>
             {topics.map((topic) => (
               <li key={topic.slug} className="topics-links">
-                <a className="links" href={`/topics/${topic.slug}`}>
+                <a className="links" href={`/?topic=${topic.slug}`}>
                   <span className="material-symbols-outlined">arrow_right</span>
                   {topic.slug}
                 </a>
@@ -50,4 +50,4 @@ const TopicsToggle = () => {
   );
 };
 
-export default TopicsToggle;
+export default TopicsMenu;
