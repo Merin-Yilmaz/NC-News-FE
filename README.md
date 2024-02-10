@@ -3,11 +3,11 @@
 
 This is a social news forum site, where users are able to interact, rate content and discuss topics with others, similarly to Reddit. 
 The articles are served up from my NC News API that I had made for my backend project:
-NC News API: 
-```sh
-$ https://github.com/Merin-Yilmaz/NC-News-FE.git
+
+NC News API:
+https://github.com/Merin-Yilmaz/NC-News-FE.git
 https://nc-news-api-od1r.onrender.com
-```
+
 
 ### 🏠 [Homepage](https://myncnew.netlify.app/)
 

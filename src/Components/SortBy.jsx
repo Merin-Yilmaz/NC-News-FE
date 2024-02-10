@@ -15,50 +15,52 @@ const SortBy = () => {
 
   useEffect(() => {
     if (sort !== sortFromQuery || order !== orderFromQuery) {
-      if(searchParams.length) {
+      if (searchParams.length) {
         window.location =
-        "/?" +
-        new URLSearchParams({ sort: sort }).toString() +
-        "&" +
-        new URLSearchParams({ order: order }).toString();
+          "/?" +
+          new URLSearchParams({ sort: sort }).toString() +
+          "&" +
+          new URLSearchParams({ order: order }).toString();
       } else {
         window.location =
-        location.search +
-        "&" +
-        new URLSearchParams({ sort: sort }).toString() +
-        "&" +
-        new URLSearchParams({ order: order }).toString();
+          location.search +
+          "&" +
+          new URLSearchParams({ sort: sort }).toString() +
+          "&" +
+          new URLSearchParams({ order: order }).toString();
       }
-      
     }
-    console.log(sort);
   }, [sort, order]);
 
   return (
     <>
       <div className="sort-container">
-        <h6>Sort By:</h6>
-        <select
-          onChange={(event) => setSort(event.target.value)}
-          value={sortFromQuery}
-        >
-          {Object.entries(sortingOptions).map(([key, sort]) => (
-            <option key={key} value={key}>
-              {sort}
-            </option>
-          ))}
-        </select>
-        <h6>Order By:</h6>
-        <select
-          onChange={(event) => setOrder(event.target.value)}
-          value={orderFromQuery}
-        >
-          {orderOptions.map((order) => (
-            <option key={order} value={order}>
-              {order}
-            </option>
-          ))}
-        </select>
+        <div className="sortby">
+          <h6>Sort By:</h6>
+          <select
+            onChange={(event) => setSort(event.target.value)}
+            value={sortFromQuery}
+          >
+            {Object.entries(sortingOptions).map(([key, sort]) => (
+              <option key={key} value={key}>
+                {sort}
+              </option>
+            ))}
+          </select>
+        </div>
+        <div className="orderby">
+          <h6>Order By:</h6>
+          <select
+            onChange={(event) => setOrder(event.target.value)}
+            value={orderFromQuery}
+          >
+            {orderOptions.map((order) => (
+              <option key={order} value={order}>
+                {order}
+              </option>
+            ))}
+          </select>
+        </div>
       </div>
     </>
   );

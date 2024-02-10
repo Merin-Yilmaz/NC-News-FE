@@ -7,8 +7,7 @@ import Comments from "./Comments";
 import Accordion from "./CommentAccordion";
 import moment from "moment";
 import VoteCounter from "./VoteCounter";
-import background from "../../img/background.png"
-
+import background from "../../img/background.png";
 
 const ArticleCard = () => {
   const { article_id } = useParams();
@@ -36,36 +35,37 @@ const ArticleCard = () => {
 
   return (
     <>
-    <div style={{ backgroundImage: `url(${background})` }} >
-      {article ? (
-        <>
-          <h2>{article.title}</h2>
-          <div className="article-list-detail">
-            <ul className="article-date">
-              Date Created: <br></br>
-              {moment(article.created_at).format("MMMM Do YYYY")}
-            </ul>
-            <ul className="article-topic">Topic: {article.topic}</ul>
-            <ul className="article-author">Author: {article.author}</ul>
-            <img
-              className="article-img"
-              src={article.article_img_url}
-              alt={article.title}
-            />
-            <div className="article-body-background">
-            <ul className="article-body">{article.body}</ul>
+      <div style={{ backgroundImage: `url(${background})` }}>
+        <div className="article-card-detail">
+          {article ? (
+            <>
+              <h2>{article.title}</h2>
 
-            <VoteCounter article={article} />
-            <br></br>
-            <div className="view-comments">
-              <Accordion contentDescriptor={"Comments"}>
-                <Comments article={article} />
-              </Accordion>
-            </div>
-            </div>
-          </div>
-        </>
-      ) : null}
+              <ul className="article-topic">Topic: {article.topic}</ul>
+              <img
+                className="article-img"
+                src={article.article_img_url}
+                alt={article.title}
+              />
+              <div className="article-body-background">
+              <ul className="article-author">Author: {article.author}</ul>
+                <ul className="article-body">{article.body}</ul>
+                <ul className="article-date">
+                  Date Posted: <br></br>
+                  {moment(article.created_at).format("MMMM Do YYYY")}
+                </ul>
+
+                <VoteCounter article={article} />
+                <br></br>
+                <div className="view-comments">
+                  <Accordion contentDescriptor={"Comments"}>
+                    <Comments article={article} />
+                  </Accordion>
+                </div>
+              </div>
+            </>
+          ) : null}
+        </div>
       </div>
     </>
   );

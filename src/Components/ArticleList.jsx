@@ -63,7 +63,14 @@ const ArticleList = () => {
             <TopicsMenu />
           </div>
           <div className="articles-list-column">
-            {topicFromQuery ? <h3>Topic: {topicFromQuery}</h3> : <h2>Articles</h2>}
+            {topicFromQuery ? (
+              <h3>Topic: {topicFromQuery}</h3>
+            ) : (
+              <h2>Articles</h2>
+            )}
+            <div className="articles-list-column">
+              <SortBy />
+            </div>
             {articles.map((article) => (
               <div className="all-articles" key={article.article_id}>
                 <a href={`/articles/${article.article_id}`}>
@@ -83,9 +90,6 @@ const ArticleList = () => {
                 </p>
               </div>
             ))}
-          </div>
-          <div className="articles-list-column">
-            <SortBy />
           </div>
         </section>
       </div>

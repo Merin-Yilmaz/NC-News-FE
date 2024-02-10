@@ -48,7 +48,7 @@ const PostComments = ({
           onChange={onChangeHandler}
           value={commentArea}
           required
-          cols="40"
+          cols="50%"
           rows="4"
         />
         <button

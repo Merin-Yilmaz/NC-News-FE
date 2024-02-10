@@ -1,26 +1,26 @@
 import logo from "../../img/logo.png";
 import { useContext } from "react";
 import UserContext from "./UserContext";
+import NavBar from "./NavBar";
 
 const Header = () => {
   const loggedInUser = useContext(UserContext);
   return (
     <header>
       <a href={`/`}>
-        <img src={logo} alt="logo image" height={70} width={70} />
-        <h1>NC News</h1>
+        <img src={logo} alt="logo image" height={60} width={60} />
+        <h1 id="header">NC News</h1>
       </a>
       <div className="nav-current-user">
-        <p>
-          Logged In User:{" "}
+          User:{" "}
           <img
             className="user-img"
             src={loggedInUser.avatar_url}
             alt={`avatar for user ${loggedInUser.username}`}
           />
           {loggedInUser.username}
-        </p>
       </div>
+      <NavBar />
     </header>
   );
 };

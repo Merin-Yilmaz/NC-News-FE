@@ -3,7 +3,6 @@ import "./App.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Root from "../src/Routes/Root";
 import Header from "./Components/Header";
-import NavBar from "./Components/Navigation";
 import Home from "./Routes/Home";
 import Dashboard from "../src/Components/Dashboard";
 import ArticleCard from "./Components/ArticleCard";
@@ -57,7 +56,6 @@ function App() {
       <div >
         <UserContext.Provider value={loggedInUser}>
           <Header />
-          <NavBar />
           <RouterProvider router={router} />
         </UserContext.Provider>
       </div>
